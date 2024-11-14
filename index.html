@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfólio - Gabriel Jordão</title>
+<style>
+    /* Estilização Geral */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #202020;
+        color: #fff;
+    }
+
+    /* Cabeçalho */
+    header {
+        background-color: #333;
+        color: #fff;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap; /* Para adaptar os itens em telas menores */
+    }
+
+    .logo {
+        font-size: 1.5em;
+        font-weight: bold;
+    }
+
+    nav {
+        display: flex;
+        align-items: center;
+    }
+
+    nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        gap: 20px;
+    }
+
+    nav ul li {
+        display: inline;
+    }
+
+    nav ul li a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+        color: #2e6dbe;
+    }
+
+    /* Imagem de Fundo - Desktop */
+    .imagem-desktop {
+        width: 100%;
+        height: auto;
+        max-width: 1348px;
+        display: block;
+        margin: 0 auto;
+    }
+
+    /* Imagem de Fundo - Mobile */
+    .imagem-mobile {
+        display: none; /* Ocultar por padrão */
+        width: 100%;
+        height: auto;
+    }
+
+    /* Rodapé */
+    footer {
+        background-color: #202020;
+        color: #fff;
+        text-align: center;
+        padding: 20px 0;
+        margin-top: 30px;
+    }
+
+    .footer-content {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 20px; /* Para dar margem nas laterais em telas menores */
+    }
+
+    .footer-content h3 {
+        margin-bottom: 10px;
+        font-size: 1.5em;
+    }
+
+    .contact-info {
+        list-style: none;
+        padding: 0;
+        margin-bottom: 15px;
+    }
+
+    .contact-info li {
+        margin: 5px 0;
+    }
+
+    .contact-info a {
+        color: #4769ff;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+
+    .contact-info a:hover {
+        color: #fff;
+    }
+
+    .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-bottom: 15px;
+    }
+
+    .footer-bottom {
+        margin-top: 20px;
+        font-size: 0.9em;
+    }
+
+    /* Menu Hambúrguer */
+    .menu-toggle {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+    }
+
+    .menu-toggle div {
+        width: 25px;
+        height: 3px;
+        background-color: #fff;
+    }
+
+    /* Estilos Responsivos */
+    @media (max-width: 768px) {
+        /* Menu Responsivo */
+        nav ul {
+            display: none; /* Esconde o menu padrão */
+            flex-direction: column;
+            gap: 10px;
+            background-color: #333;
+            position: absolute;
+            top: 60px;
+            right: 20px;
+            width: 150px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        nav ul.show {
+            display: flex; /* Exibe o menu ao clicar */
+        }
+
+        .menu-toggle {
+            display: flex; /* Exibe o ícone de menu hambúrguer */
+        }
+
+        /* Substituir a imagem no responsivo */
+        .imagem-desktop {
+            display: none; /* Oculta a imagem de desktop */
+        }
+
+        .imagem-mobile {
+            display: block; /* Exibe a imagem para mobile */
+        }
+    }
+
+</style>
+</head>
+<body>
+    <header>
+        <div class="logo">Gabriel Jordão</div>
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <nav>
+            <ul id="menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projetos.html">Projetos</a></li>
+                <li><a href="cursos.html">Cursos</a></li>
+                <li><a href="sobremim.html">Sobre Mim</a></li>
+                
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Imagem para Desktop -->
+    <img src="src/imagens/fundo site.png" alt="Imagem de Fundo Desktop" class="imagem-desktop">
+    
+    <!-- Imagem para Mobile -->
+    <img src="src/imagens/fundo-responsivo.png" alt="Imagem de Fundo Mobile" class="imagem-mobile">
+
+    <footer>
+        <div class="footer-content">
+            <h3>Entre em Contato</h3>
+            <p>Fique à vontade para me enviar uma mensagem ou conectar-se nas redes sociais.</p>
+            <ul class="contact-info">
+                <li><a href="mailto:gabriel.jordao.1711@gmail.com">📧 gabriel.jordao.1711@gmail.com</a></li>
+                <li><a href="tel:+5511948588926">📞 +55 (11) 94858-8926</a></li>
+            </ul>
+            <div class="social-links">
+                <a href="https://wa.me/5511948588926" target="_blank">Whatsapp</a>
+                <a href="https://www.instagram.com/biel_.jordao" target="_blank">Instagram</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Gabriel Jordão. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.classList.toggle('show');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carrossel de Cursos</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #505050;
+        
+    }
+
+    header {
+        background-color: #333;
+        color: #fff;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        font-size: 1.5em;
+        font-weight: bold;
+    }
+
+    nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        gap: 20px;
+    }
+
+    nav ul li {
+        display: inline;
+    }
+
+    nav ul li a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+        color: #2e6dbe; /* Cor de hover */
+    }
+    img{
+        max-width: 1348px;
+    }
+    /* Estilização do rodapé */
+    footer {
+        background-color: #202020;
+        color: #fff;
+        text-align: center;
+        padding: 20px 0;
+        justify-content: space-between;
+    }
+
+    .footer-content {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .footer-content h3 {
+        margin-bottom: 10px;
+        font-size: 1.5em;
+    }
+
+    .footer-content p {
+        margin-bottom: 15px;
+    }
+
+    .contact-info {
+        list-style: none;
+        padding: 0;
+        margin-bottom: 15px;
+    }
+
+    .contact-info li {
+        margin: 5px 0;
+    }
+
+    .contact-info a {
+        color: #4769ff;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+
+    .contact-info a:hover {
+        color: #fff;
+    }
+
+    .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-bottom: 15px;
+    }
+
+    .social-links a {
+        color: #4769ff;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s;
+    }
+
+    .social-links a:hover {
+        color: #fff;
+    }
+
+    .footer-bottom {
+        margin-top: 20px;
+        font-size: 0.9em;
+    }
+
+
+    /* Estilos do carrossel */
+    .carousel-container {
+        width: 80%;
+        max-width: 450px;
+        margin: 0 auto;
+        position: relative;
+        overflow: hidden;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        margin-top: 80px;
+        margin-bottom: 80px;
+    }
+
+    .carousel-track {
+        display: flex;
+        transition: transform 0.5s ease;
+    }
+
+    .carousel-slide {
+        min-width: 100%;
+        position: relative;
+    }
+
+    .carousel-slide img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 10px;
+    }
+
+    .carousel-button {
+        position: absolute;
+        top: 50%;
+        width: 40px;
+        height: 40px;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        transform: translateY(-50%);
+        border-radius: 50%;
+    }
+
+    .prev-btn {
+        left: 10px;
+    }
+
+    .next-btn {
+        right: 10px;
+    }
+
+    .carousel-caption {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: rgba(0, 0, 0, 0.6);
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-align: center;
+    }
+
+    .carousel-caption a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+        padding: 10px 20px;
+        background-color: #8c52ff;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
+
+    .carousel-caption a:hover {
+        background-color: #333;
+    }
+    .corpo{
+        display: flex;
+
+    }
+    .minhafoto{
+        width: 580px;
+    }
+    /* Menu Hambúrguer */
+    .menu-toggle {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+    }
+
+    .menu-toggle div {
+        width: 25px;
+        height: 3px;
+        background-color: #fff;
+    }
+
+    @media (max-width: 768px) {
+        /* Menu Responsivo */
+        nav ul {
+            display: none; /* Esconde o menu padrão */
+            flex-direction: column;
+            gap: 10px;
+            background-color: #333;
+            position: absolute;
+            top: 60px;
+            right: 20px;
+            width: 150px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        nav ul.show {
+            display: flex; /* Exibe o menu ao clicar */
+        }
+
+        .menu-toggle {
+            display: flex; /* Exibe o ícone de menu hambúrguer */
+        }
+        .minhafoto{
+            display: none;
+        }
+        
+        .carousel-caption{
+            max-width: 300px;
+            font-size: 12px;
+        }
+        .corpo{
+            display: flex;
+        }
+    }
+    
+</style>
+</head>
+<body>
+    <header>
+        <div class="logo">Gabriel Jordão</div>
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <nav>
+            <ul id="menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projetos.html">Projetos</a></li>
+                <li><a href="cursos.html">Cursos</a></li>
+                <li><a href="sobremim.html">Sobre Mim</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="corpo">
+ <img class="minhafoto" src="src/imagens/FOTO MINHA.png" alt="">
+<div class="carousel-container">
+    <div class="carousel-track">
+        <!-- Slide 1 -->
+        <div class="carousel-slide">
+            <img src="src/imagens/Informática Básica (1).png" alt="Curso 1">
+            <div class="carousel-caption">
+                <a href="cursoinformatica.html" target="_blank">Saiba Mais</a>
+            </div>
+        </div>
+        <!-- Slide 2 -->
+        <div class="carousel-slide">
+            <img src="src/imagens/Algoritimo.png" alt="Curso 2">
+            <div class="carousel-caption">
+                <a href="cursoalgoritimo.html" target="_blank">Saiba Mais</a>
+            </div>
+        </div>
+        <!-- Slide 3 -->
+        <div class="carousel-slide">
+            <img src="src/imagens/hardware.png" alt="Curso 3">
+            <div class="carousel-caption">
+                <a href="cursohardware.html" target="_blank">Saiba Mais</a>
+            </div>
+        </div>
+    </div>
+    <!-- Botões de navegação -->
+    <button class="carousel-button prev-btn">&#10094;</button>
+    <button class="carousel-button next-btn">&#10095;</button>
+</div>
+</div>
+<footer>
+    <div class="footer-content">
+        <h3>Entre em Contato</h3>
+        <p>Fique à vontade para me enviar uma mensagem ou conectar-se nas redes sociais.</p>
+        <ul class="contact-info">
+            <li><a href="mailto:gabriel.jordao.1711@gmail.com">📧 gabriel.jordao.1711@gmail.com</a></li>
+            <li><a href="tel:+5511948588926">📞 +55 (11) 94858-8926</a></li>
+        </ul>
+        <div class="social-links">
+            <a href="https://wa.me/551948588926" target="_blank">Whatsapp</a>
+            <a href="https://www.instagram.com/biel_.jordao" target="_blank">Instagram</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2024 Gabriel Jordão. Todos os direitos reservados.</p>
+    </div>
+</footer>
+<script>
+    const track = document.querySelector('.carousel-track');
+    const slides = Array.from(track.children);
+    const prevButton = document.querySelector('.prev-btn');
+    const nextButton = document.querySelector('.next-btn');
+    let currentIndex = 0;
+
+    function showSlide(index) {
+        if (index >= slides.length) {
+            currentIndex = 0;
+        } else if (index < 0) {
+            currentIndex = slides.length - 1;
+        } else {
+            currentIndex = index;
+        }
+        const newPosition = -currentIndex * 100;
+        track.style.transform = `translateX(${newPosition}%)`;
+    }
+
+    prevButton.addEventListener('click', () => {
+        showSlide(currentIndex - 1);
+    });
+
+    nextButton.addEventListener('click', () => {
+        showSlide(currentIndex + 1);
+    });
+</script>
+<script>
+    function toggleMenu() {
+        const menu = document.getElementById('menu');
+        menu.classList.toggle('show');
+    }
+</script>
+</body>
+</html>

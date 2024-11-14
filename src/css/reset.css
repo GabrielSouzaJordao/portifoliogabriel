@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Inclui padding e border no cálculo do tamanho */
+}
+
+body {
+    font-family: Arial, sans-serif; /* Define uma fonte padrão */
+    line-height: 1.6; /* Define a altura da linha padrão para facilitar a leitura */
+}
+
+/* Correções específicas para elementos */
+ul, ol {
+    list-style: none; /* Remove os estilos padrão de listas */
+}
+
+a {
+    text-decoration: none; /* Remove sublinhado padrão de links */
+    color: inherit; /* Herda a cor do texto do pai */
+}
+
+button, input {
+    border: none; /* Remove as bordas padrão */
+    outline: none; /* Remove a borda de foco ao clicar */
+}
+
+img {
+    max-width: 100%; /* Garante que as imagens não excedam seu contêiner */
+    height: auto; /* Mantém a proporção da imagem */
+}

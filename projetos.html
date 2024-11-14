@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projetos</title>
+<style>
+  
+  .corpo{
+    display: flex;
+    justify-content: center;
+  }
+  .container {
+    width: 80%;
+    max-width: 800px;
+    text-align: center;
+    margin-top: 100px;
+  }
+
+  h1 {
+    margin-bottom: 20px;
+    color: #ffffff;
+    font-size: 50px;
+  }
+
+  .carousel {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    
+  }
+
+  .carousel-images {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+
+  .carousel-item {
+    min-width: 100%;
+    position: relative;
+  }
+
+  .carousel-item img {
+    width: 100%;
+    display: block;
+    border-radius: 10px;
+  }
+
+  .project-btn {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    background-color: #7700ff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-transform: uppercase;
+  }
+
+  .project-btn:hover {
+    background-color: #3b0396;
+  }
+
+  .nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 24px;
+  }
+
+  #prevBtn {
+    left: 10px;
+  }
+
+  #nextBtn {
+    right: 10px;
+  }
+
+      /* Estilização do cabeçalho */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #505050;
+    }
+
+    header {
+        background-color: #333;
+        color: #fff;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        font-size: 1.5em;
+        font-weight: bold;
+    }
+
+    nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        gap: 20px;
+    }
+
+    nav ul li {
+        display: inline;
+    }
+
+    nav ul li a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+        color: #2e6dbe; /* Cor de hover */
+    }
+    img{
+        max-width: 1348px;
+    }
+
+    footer {
+        background-color: #202020;
+        color: #fff;
+        text-align: center;
+        padding: 20px 0;
+        margin-top: 100px;
+    }
+
+    .footer-content {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .footer-content h3 {
+        margin-bottom: 10px;
+        font-size: 1.5em;
+    }
+
+    .footer-content p {
+        margin-bottom: 15px;
+    }
+
+    .contact-info {
+        list-style: none;
+        padding: 0;
+        margin-bottom: 15px;
+    }
+
+    .contact-info li {
+        margin: 5px 0;
+    }
+
+    .contact-info a {
+        color: #4769ff;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+
+    .contact-info a:hover {
+        color: #fff;
+    }
+
+    .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-bottom: 15px;
+    }
+
+    .social-links a {
+        color: #474aff;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s;
+    }
+
+    .social-links a:hover {
+        color: #fff;
+    }
+
+    .footer-bottom {
+        margin-top: 20px;
+        font-size: 0.9em;
+    }
+     /* Menu Hambúrguer */
+     .menu-toggle {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+    }
+
+    .menu-toggle div {
+        width: 25px;
+        height: 3px;
+        background-color: #fff;
+    }
+
+    @media (max-width: 768px) {
+        /* Menu Responsivo */
+        nav ul {
+            display: none; /* Esconde o menu padrão */
+            flex-direction: column;
+            gap: 10px;
+            background-color: #333;
+            position: absolute;
+            top: 60px;
+            right: 20px;
+            width: 150px;
+            padding: 10px;
+            border-radius: 5px;
+            max-width: 350px;
+        }
+
+        nav ul.show {
+            display: flex; /* Exibe o menu ao clicar */
+        }
+
+        .menu-toggle {
+            display: flex; /* Exibe o ícone de menu hambúrguer */
+        }
+        
+        h1{
+            font-size: 30px;
+        }
+        
+    }
+
+</style>
+</head>
+<body>
+    <header>
+        <div class="logo">Gabriel Jordão</div>
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <nav>
+            <ul id="menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projetos.html">Projetos</a></li>
+                <li><a href="cursos.html">Cursos</a></li>
+                <li><a href="sobremim.html">Sobre Mim</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="corpo">
+  <div class="container">
+    <h1>MEUS PROJETOS</h1>
+    <div class="carousel">
+      <button id="prevBtn" class="nav-btn">❮</button>
+      <div class="carousel-images">
+        <div class="carousel-item">
+          <img src="src/imagens/gta.png" alt="Projeto 1">
+          <button onclick="redirecionar('https://gabrielsouzajordao.github.io/projeto_gta/')" class="project-btn">Ver Projeto</button>
+        </div>
+        <div class="carousel-item">
+          <img src="src/imagens/Captura de tela 2024-11-10 222524.png" alt="Projeto 2">
+          <button style="display: none;" onclick="redirecionar('https://linkprojeto2.com')" class="project-btn">Ver Projeto</button>
+        </div>
+        <div class="carousel-item">
+          <img src="src/imagens/sergio.png" alt="Projeto 3">
+          <button onclick="redirecionar('https://gabrielsouzajordao.github.io/google.primeirapagina/')" class="project-btn">Ver Projeto</button>
+        </div>
+      </div>
+      <button id="nextBtn" class="nav-btn">❯</button>
+    </div>
+  </div>
+</div>
+  <footer>
+    <div class="footer-content">
+        <h3>Entre em Contato</h3>
+        <p>Fique à vontade para me enviar uma mensagem ou conectar-se nas redes sociais.</p>
+        <ul class="contact-info">
+            <li><a href="mailto:gabriel.jordao.1711@gmail.com">📧 gabriel.jordao.1711@gmail.com</a></li>
+            <li><a href="tel:+5511948588926">📞 +55 (11) 94858-8926</a></li>
+        </ul>
+        <div class="social-links">
+            <a href="https://wa.me/5511948588926" target="_blank">Whatsapp</a>
+            <a href="https://www.instagram.com/biel_.jordao" target="_blank">Instagram</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2024 Gabriel Jordão. Todos os direitos reservados.</p>
+    </div>
+</footer>
+  <script>
+    let currentIndex = 0;
+    const carouselImages = document.querySelector('.carousel-images');
+    const totalItems = document.querySelectorAll('.carousel-item').length;
+
+    document.getElementById('prevBtn').addEventListener('click', () => {
+      currentIndex = currentIndex > 0 ? currentIndex - 1 : totalItems - 1;
+      updateCarousel();
+    });
+
+    document.getElementById('nextBtn').addEventListener('click', () => {
+      currentIndex = currentIndex < totalItems - 1 ? currentIndex + 1 : 0;
+      updateCarousel();
+    });
+
+    function updateCarousel() {
+      carouselImages.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+
+    function redirecionar(url) {
+      window.open(url, '_blank');
+    }
+  </script>
+  <script>
+    function toggleMenu() {
+        const menu = document.getElementById('menu');
+        menu.classList.toggle('show');
+    }
+</script>
+</body>
+</html>
